@@ -20,6 +20,7 @@
         font-family: "Lato", sans-serif;
       }
     </style>
+
     <title>Fruit Burst</title>
   </head>
   <body class="lato">
@@ -54,16 +55,39 @@
         </nav>
       </div>
       <!-- Mobile Nav -->
-      <nav
-        class="container mx-auto flex justify-between items-center px-6 py-4 md:hidden"
-      >
-        <!-- Logo -->
-        <div class="flex items-center gap-4">
-          <img class="w-7" src="./images/logo.png" alt="" />
-          <h2 class="text-2xl font-bold">Fruit Burst</h2>
+      <nav>
+        <div
+          class="container mx-auto flex justify-between items-center px-6 py-4 md:hidden"
+        >
+          <!-- Logo -->
+          <div class="flex items-center gap-4">
+            <img class="w-7" src="./images/logo.png" alt="" />
+            <h2 class="text-2xl font-bold">Fruit Burst</h2>
+          </div>
+          <div>
+            <button id="navBtn">
+              <img src="./icons/hamburger.svg" alt="" />
+            </button>
+          </div>
         </div>
-        <div>
-          <button><img src="./icons/hamburger.svg" alt="" /></button>
+        <div
+          id="navbar"
+          class="hidden absolute bg-[#F85559] text-white z-10 w-full right-0 left-0 p-5 pb-10"
+        >
+          <ul class="flex gap-5 flex-col items-center">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">All Fruits</a></li>
+          </ul>
+          <div class="mt-4 flex bg-white rounded-full py-3 px-6">
+            <input
+              class="w-full text-black"
+              type="text"
+              placeholder="Search here"
+            />
+            <button><img src="./icons/search.svg" alt="" /></button>
+          </div>
         </div>
       </nav>
 
@@ -757,5 +781,17 @@
         </div>
       </div>
     </footer>
+    <script>
+      const navBtn = document.querySelector("#navBtn");
+      const navbar = document.querySelector("#navbar");
+
+      navBtn.addEventListener("click", () => {
+        if (navbar.style.display === "none" || navbar.style.display === "") {
+          navbar.style.display = "block";
+        } else {
+          navbar.style.display = "none";
+        }
+      });
+    </script>
   </body>
 </html>
